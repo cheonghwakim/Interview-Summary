@@ -3,17 +3,17 @@
 * [Java와 C의 차이점](#Java와-C의-차이점)
 * [객체지향 언어의 특징](#객체지향-언어의-특징)
   * [1. 캡슐화](#1-캡슐화Encapsulation)
-  * [2. 정보은닉](#2.-정보은닉)
-  * [3. 추상화](#3.-추상화)
-  * [4. 상속성](#4.-상속성)
-  * [5. 다형성](#5.-다형성)
-* [String/StringBuilder/StringBuffer 차이점](#String/StringBuilder/StringBuffer-차이점)
+  * [2. 정보은닉](#2-정보은닉Information-Hiding)
+  * [3. 추상화](#3-추상화Abstraction)
+  * [4. 상속성](#4-상속성Inheritance)
+  * [5. 다형성](#5-다형성Polymorphism)
+* [String, StringBuilder, StringBuffer 차이점](#String-StringBuilder-StringBuffer-차이점)
 * [Overloading과 Overriding 차이점](#Overloading과-Overriding-차이점)
 * [컬렉션 자료구조 종류와 특징](#컬렉션-자료구조-종류와-특징)
-  * [1. Set](#1.-Set)
-  * [2. List](#2.-List)
-  * [3. Queue](#3.-Queue)
-  * [4. Map](#4.-Map)
+  * [1. Set](#1-Set)
+  * [2. List](#2-List)
+  * [3. Queue](#3-Queue)
+  * [4. Map](#4-Map)
 * [쓰레드의 장점/단점](#쓰레드의-장점/단점)
 * [쓰레드 사용 시 주의할 점](#쓰레드-사용-시-주의할-점)
 * [쓰레드 사용 여부 결정 요소](#쓰레드-사용-여부-결정-요소)
@@ -23,12 +23,12 @@
 
 ### Java의 특징
 
-1. 운영체제에 독립적이다.
+1. **운영체제에 독립적**이다.
 - JVM에서 자바 바이트 코드를 OS에 맞게 해석하기 때문에 여러 운영 체제에서 같은 코드로 사용 가능하다. (C언어의 경우, OS 및 컴퓨터 아키텍쳐에 따라, 기존 코드를 재사용하기 어렵다.)
 
-2. 객체지향 프로그래밍 언어이다. [객체지향언어의 특징은 여기로](#객체지향-언어의-특징)
+2. **객체지향 프로그래밍 언어**이다. [객체지향언어의 특징은 여기로](#객체지향-언어의-특징)
 
-3. 가비지 컬렉션, 메모리(RAM)가 자동 정리된다. 
+3. **가비지 컬렉션**, 메모리(RAM)가 자동 정리된다. 
 - 더 이상 사용되지 않는 오브젝트를 가비지 컬렉션을 담당하는 프로세스가 자동으로 메모리에서 제거한다. 그래서 개발자는 개발에 집중할 수 있다.
 
 4. 캡슐화, 다형성, 상속 등의 특징이 있다. [객체지향 언어의 특징은 여기로](#객체지향-언어의-특징)
@@ -37,12 +37,12 @@
 
 ### C의 특징
 
-1. 시스템 프로그래밍이 가능하다. 
+1. **시스템 프로그래밍이 가능**하다. 
 - C는 현재 사용되고 있는 거의 모든 컴퓨터 시스템에서 사용할 수 있는 프로그래밍 언어이다. 현재 널리 사용되는 주요 운영체제의 커널은 대부분 C언어를 이용해 구현되어 있다. 시스템 프로그래밍에도 쓰이지만, 응용 프로그래밍에도 많이 사용된다.
 
-2. 다양한 하드웨어로의 이식성이 좋다.
+2. 다양한 하드웨어로의 **이식성**이 좋다.
 
-3. 처리 속도가 빠르다.
+3. **처리 속도가 빠르다.**
 - C는 컴파일 된 프로세스를 수행한다. 컴파일 과정이 오래 걸릴 뿐 수행시간은 빠르다. 반면 Java는 JVM 인터프리터에 의해 실행 시 매번 번역해야 하기 때문에 실행속도가 느리다.
 - C로 짜여진 코드는 속도가 빠르고 바이너리 크리가 작기 때문에 빠른 속도를 필요로 하는 임베디드 혹은 모바일 계열, 시스템 프로그래밍 등에서 주로 사용된다.
 
@@ -53,7 +53,7 @@
   - cf. Java코드는 링크과정이 없음 컴파일러가 바로 바이트코드를 생성.
 
 
-4. 절차지향 프로그래밍 언어이다.
+4. **절차지향 프로그래밍 언어**이다.
 - 한줄 한줄 순차적으로 처리되기 때문에 흐름을 알기는 쉬우나 디버깅, 유지보수가 어렵다.
 
 ### Java와 C의 차이점
@@ -71,28 +71,28 @@
 
 ### 1. 캡슐화(Encapsulation)
 
-캡슐화는 데이터(속성)와 데이터를 처리하는 함수를 하나로 묶은 것을 의미한다. Java에서 객체는 Method와 Field로 구성되고, 이 Method와 Field를 Class라는 캡슐에 구현한다.
-- 캡슐화된 객체의 세부 내용이 외부에 은폐(정보 은닉)되어, 변경이 발생할 때 오류의 파급 효과가 적다.
-- 캡슐화된 객체들은 재사용이 가능하다.
-- 객체 간 메세지를 주고받을 때 각 객체의 세부 내용은 알 필요가 없으므로 인터페이스가 단순해지고, 객체 간의 결합도가 낮아진다.
+**캡슐화는 데이터(속성)와 데이터를 처리하는 함수를 하나로 묶은 것**을 의미한다. Java에서 객체는 Method와 Field로 구성되고, 이 Method와 Field를 Class라는 캡슐에 구현한다.
+- 캡슐화된 **객체의 세부 내용이 외부에 은폐(정보 은닉)**되어, 변경이 발생할 때 오류의 파급 효과가 적다.
+- 캡슐화된 객체들은 **재사용이 가능**하다.
+- 객체 간 메세지를 주고받을 때 각 객체의 세부 내용은 알 필요가 없으므로 **인터페이스가 단순해지고, 객체 간의 결합도가 낮아진다.**
 
 ### 2. 정보은닉(Information Hiding)
 
-캡슐화에서 가장 중요한 개념으로, 다른 객체에게 자신의 정보를 숨기고 자신의 연산만을 통하여 접근을 허용하는 것이다.
+캡슐화에서 가장 중요한 개념으로, **다른 객체에게 자신의 정보를 숨기고 자신의 연산만을 통하여 접근을 허용**하는 것이다.
 - 각 객체의 수정이 다른 객체에게 주는 영향을 최소화 하는 용도이다.
 - 외부 객체가 특정 객체의 데이터와 함수를 직접 접근하여 사용하거나 변경하지 못하게 하여 유지보수와 소프트웨어 확장 시 오류를 최소화한다.
 
 ### 3. 추상화(Abstraction)
 
-추상화는 불필요한 부분을 생략하고 객체의 속성 중 가장 중요한 것에만 중점을 두어 개략화(모델화)하는 것이다. 좀 더 쉽게 말하면, 복잡한 구조의 시스템을 생각이 가능한 수준의 덩어리로 만들어 관리 가능할 수준으로 만들어 나가는 것이 추상화이다.
+추상화는 불필요한 부분을 생략하고 **객체의 속성 중 가장 중요한 것에만 중점을 두어 개략화(모델화)**하는 것이다. 좀 더 쉽게 말하면, 복잡한 구조의 시스템을 생각이 가능한 수준의 덩어리로 만들어 관리 가능할 수준으로 만들어 나가는 것이 추상화이다.
 - 완전한 시스템을 구축하기 이전에 그 시스템과 유사한 모델을 만들어 여러가지 요인을 테스트할 수 있다.
 - 추상화를 통해 최소의 비용으로 실제 상황에 대처할 수 있고, 시스템의 구조 및 구성을 가시적으로 볼 수 있다.
 
 ### 4. 상속성(Inheritance)
 
-상속성은 이미 정의된 상위 클래스(부모 클래스)의 모든 속성과 연산을 하위 클래스가 물려 받는 것이다.
+상속성은 이미 정의된 **상위 클래스(부모 클래스)의 모든 속성과 연산을 하위 클래스가 물려 받는 것**이다.
 - 상속성을 이용하면 하위 클래스는 상위 클래스의 모든 속성과 연산을 자기 클래스 내에서 다시 정의하지 않아도 즉시 사용할 수 있다.
-- 하위 클래스는 상위 클래스로부터 상속받은 속성과 연산 외에 새로운 속성과 연산을 추가하여 사용할 수 있다.
+- 하위 클래스는 상위 클래스로부터 상속받은 속성과 연산 외에 **새로운 속성과 연산을 추가하여 사용할 수 있다.**
 - 상위 클래스의 속성과 연산을 하위 클래스가 물려받을 수 있기 때문에 객체와 클래스의 재사용, 즉 소프트웨어 재사용이 가능하다.
 
 
@@ -102,13 +102,61 @@
 
 ### 5. 다형성(Polymorphism)
 
+다형성은 **같은 이름의 메소드 호출에 대하여 객체에 따라 다른 동작을 할 수 있도록 구현**되는 것이다. 상속받은 클래스의 Method를 재사용하는 것을 오버라이딩(Overriding)이라 하는데, 다형성을 할 때 [오버로딩과 오버라이딩](#Overloading과-Overriding-차이점)이 있다.
+- 객체들은 모두 동일한 메소드명을 사용하며 같은 의미의 응답을 한다.
 
 <p align="center">
   <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FI7rhG%2FbtqxVzCNjsm%2FlnUwxkofn8pZfGiXjQBE90%2Fimg.png" height="250" width="700">
 </p>
 
-## [String/StringBuilder/StringBuffer 차이점](https://github.com/cheonghwakim/CS-STUDY/tree/main/JAVA#String,-StirngBuffer,-StringBuilder%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90)
+## [String, StringBuilder, StringBuffer 차이점](https://github.com/cheonghwakim/CS-STUDY/tree/main/JAVA#String,-StirngBuffer,-StringBuilder%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90)
 
+## Overloading과 Overriding 차이점
+
+- Overloading : 두 메소드가 같은 이름을 갖고 있으나 **인자의 수나 자료형이 다른 경우**이다.
+- 예시
+``` java
+public double computeArea(Circle c) {...}
+public double computeArea(Circle c1, Circle c2) {...}
+public double computeArea(Square s) {...}
+```
+
+- Overriding: **상위 클래스의 메소드와 이름, 인자가 같은 함수를 하위 클래스에 재정의** 하는 것이다.
+- 예시
+``` java
+public abstract class Shape {
+  public void printMe() { System.out.println("Shape"); }
+  public abstract double computeArea();
+}
+public class Circle extends Shape {
+  private double rad = 5;
+  @Override // 개발자의 실수를 방지하기 위해 @Override(annotation) 쓰는 것을 권장
+  public void printMe() { System.out.println("Circle"); }
+  public double computeArea() { return rad * rad * 3.15; }
+}
+public class Ambiguous extends Shape {
+  private double area = 10;
+  public double computeArea() { return area; }
+}
+```
+``` java
+public class Main {
+  public static void main(String[] args) {
+    Shape[] shapes = new Shape[2];
+    Circle circle = new Circle();
+    Ambiguous ambiguous = new Ambiguous();
+
+    shapes[0] = circle;
+    shapes[1] = ambiguous;
+
+    for(Shape s : shapes) {
+      s.printMe();
+      System.out.println(s.computeArea());
+    }
+  }
+}
+```
+- 위의 코드에서 computeArea함수의 이름, 인자의 종류, 수가 같지만 안의 로직은 조금씩 다르다.
 
 
 ## Collection 자료구조 종류와 특징
