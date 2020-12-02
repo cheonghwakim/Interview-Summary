@@ -1,6 +1,6 @@
 # Interview-Summary
 
-### [1주차](https://github.com/cheonghwakim/TIL/tree/master/%EB%A9%B4%EC%A0%91%EB%8C%80%EB%B9%84/1%EC%A3%BC%EC%B0%A8) (201130 ~ 201202)
+### [1주차](https://github.com/cheonghwakim/Interview-Summary/tree/main/1%EC%A3%BC%EC%B0%A8) (201130 ~ 201202)
 * java와 c의 차이점
 * 객체지향 언어의 특징
 * String, StringBuilder, StringBuffer의 차이점
